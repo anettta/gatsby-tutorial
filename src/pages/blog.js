@@ -1,12 +1,19 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import Layout from '../components/layout'
+import styles from '../components/blog.module.css'
+
 
 const blog = () => {
     return (
-        <div>
-            <h1>my blog</h1>
-           <Link to="/">home page</Link>
-        </div>
+       <Layout>
+           <div className={styles.page}>
+       <h1>my blog</h1>
+       <p className={styles.text}>
+           first article
+       </p>
+       </div>
+       </Layout>
+           
     )
 }
 

@@ -1,17 +1,10 @@
+// scope css locally
+
 import React from "react"
-import {Link} from 'gatsby'
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-
-export default function Home() {
-  return <div>
-     <Navbar />
-     <div>
-  Hello!
-     </div>
-   
-    
-
-<Footer />
-  </div>
-}
+import Layout from '../components/layout'
+export default () => 
+(
+  <Layout>
+  <h1 style={{color: "red", textTransform: "uppercase"}}>hello from gatsby</h1>
+  </Layout>
+)

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap");
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  color: yellowgreen;
+  text-transform: uppercase;
+}
+
+.blog-text {
+  color: red;
+  line-height: 0.5;
+}
+
+.products-text {
+  color: blue;
+  line-height: 0.4;
+}
