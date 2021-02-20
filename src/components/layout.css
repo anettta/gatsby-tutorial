@@ -37,3 +37,7 @@ h1 {
     column-gap: 30px;
   }
 }
+
+.small {
+  width: 200px;
+}

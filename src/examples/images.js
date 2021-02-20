@@ -3,28 +3,33 @@ import {graphql, useStaticQuery} from 'gatsby'
 import img from '../images/image-4.jpg'
 import Image from "gatsby-image"
 
-const getImages = graphql`
-{
-  fixed: file(relativePath: {eq: "image-3.jpg"}) {
-    childImageSharp {
-      fixed(width: 200, grayscale: true) {
-        ...GatsbyImageSharpFixed
+const Images = () => {
+  const data = useStaticQuery(graphql`
+    {
+      fixed: file(relativePath: {eq: "image-3.jpg"}) {
+        childImageSharp {
+          fixed {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      fluid: file(relativePath: {eq: "image-1.jpg"}) {
+        childImageSharp {
+            fluid {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+       }
+      }
+      example: file(relativePath: {eq: "image-4.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
       }
     }
-  }
-  fluid: file(relativePath: {eq: "image-1.jpg"}) {
-    childImageSharp {
-      fluid {
-        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-      }
-    }
-  }
-}
-`
-
-const images = () => {
-    const data = useStaticQuery(getImages)
-    return (
+  `)
+  return (
         <section className="images">
             <article className="single-image">
                 <h3>basic image</h3>
@@ -37,9 +42,14 @@ const images = () => {
              <article className="single-image">
                 <h3>fluid image/svg</h3>
                 <Image fluid={data.fluid.childImageSharp.fluid} />
+                <div className="small">
+                  <Image fluid={data.fluid.childImageSharp.fluid} />
+                </div>
+                <Image fluid={data.example.childImageSharp.fluid} />
             </article>
         </section>
     )
+  
 }
 
-export default images
+export default Images
